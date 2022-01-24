@@ -56,6 +56,8 @@ const sections = await yes.getAllSections(terms[0]);
 ### Search All Sections
 
 Returns up to 300 Sections fetched from YES using a search query in a given Term.
+<br/>
+*NOTE: THIS OPERATION CAN TAKE A LONG TIME! EXPECT UPWARDS OF 40 MINUTES FOR SPRING/FALL SEMESTERS.*
 
 ```typescript
 // Section[]
@@ -71,6 +73,15 @@ or `searchSections`.</b>
 ```typescript
 // SectionDetails
 const details = await yes.getSectionDetails(sections[0]);
+```
+
+### Check Section Existence
+
+Returns whether or not a Section exists within a given term. Note that this function accepts IDs, rather than objects.
+
+```typescript
+// Boolean
+const exists = await yes.sectionExists(sections[0].id, sections[0].term.id);
 ```
 
 ## Response Streaming
@@ -92,6 +103,18 @@ const sections = await yes.getAllSections(terms[0], false, async (section, timeE
     await mongodb.collection('sections').insert(section);
 });
 ```
+
+## FAQ
+
+#### Does this API fetch ALL Courses?
+* For the most part, yes! There are a few exceptions. Due to our scraping algorithm and YES' limitations, we are unable to fetch courses with the course numbers
+  `3850`, `3851`, `3852`, (Independent reading/study)
+  `7999`, (Master's Thesis Research)
+  `8999`, (Non candidate research)
+  `9999` (Ph.D dissertation research).
+
+#### How should I use this package?
+* This API's speed is unfortunately limited by the speed of YES itself since it fetches data from the source with every request. Consider using this API in a batch process, uploading discovered data to a database or lake for fast, efficient querying and downstream processing.
 
 ## Thanks
 
