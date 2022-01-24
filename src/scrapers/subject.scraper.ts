@@ -19,7 +19,7 @@ export class SubjectScraper extends Scraper<Subject> {
         const $ = load(response.body);
 
         // Grab the table
-        const subjects: Subject[] = $('#subjects').find('tr').map(function(index, element) {
+        const subjects: Subject[] = $('#subjects').find('tr').map(function (index, element) {
             if (index === 0) {
                 return;
             }
@@ -29,7 +29,7 @@ export class SubjectScraper extends Scraper<Subject> {
                 name: ""
             };
 
-            $(this).find('td').each(function(index, element) {
+            $(this).find('td').each(function (index, element) {
                 const val = $(this).text();
 
                 switch (index) {

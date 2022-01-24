@@ -17,7 +17,8 @@ export class SectionDetailScraper extends Scraper<SectionDetails> {
         this.section = section;
     }
 
-    override async scrape(handler: StreamedResponseHandler<SectionDetails> = (_) => {}): Promise<SectionDetails[]> {
+    override async scrape(handler: StreamedResponseHandler<SectionDetails> = (_) => {
+    }): Promise<SectionDetails[]> {
         this.markStart();
 
         const url = 'https://acad.app.vanderbilt.edu/more/GetClassSectionDetail.action';

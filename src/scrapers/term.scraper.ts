@@ -11,7 +11,8 @@ export class TermScraper extends Scraper<Term> {
 
     private readonly SEARCH_CLASSES = "https://acad.app.vanderbilt.edu/more/SearchClasses!input.action";
 
-    override async scrape(handler: StreamedResponseHandler<Term> = (_) => {}): Promise<Term[]> {
+    override async scrape(handler: StreamedResponseHandler<Term> = (_) => {
+    }): Promise<Term[]> {
         this.markStart();
 
         let terms: Term[] = await this.scrapeTerms();
@@ -68,7 +69,7 @@ export class TermScraper extends Scraper<Term> {
             responseType: 'json'
         });
 
-        const body = <{ code: string, longDescription: string, shortDescription: string }[]> sessionsResult.body;
+        const body = <{ code: string, longDescription: string, shortDescription: string }[]>sessionsResult.body;
         return body.map(t => {
             return {
                 id: t.code,

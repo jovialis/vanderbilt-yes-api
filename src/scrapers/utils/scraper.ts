@@ -4,7 +4,9 @@
 
 import {CookieJar} from "tough-cookie";
 
-export type StreamedResponseHandler<T> = ((value: T, timestamp: number) => void) | ((value: T, timestamp: number) => Promise<void>);
+export type StreamedResponseHandler<T> =
+    ((value: T, timestamp: number) => void)
+    | ((value: T, timestamp: number) => Promise<void>);
 
 export abstract class Scraper<T> {
 
@@ -15,6 +17,8 @@ export abstract class Scraper<T> {
         this.cookieJar = cookieJar || new CookieJar();
         this._startTime = startTime;
     }
+
+    abstract scrape(handler: StreamedResponseHandler<T>): Promise<T[]>;
 
     protected markStart(): number {
         this._startTime = Date.now();
@@ -36,7 +40,5 @@ export abstract class Scraper<T> {
     protected clearCookies() {
         this.cookieJar.removeAllCookiesSync();
     }
-
-    abstract scrape(handler: StreamedResponseHandler<T>): Promise<T[]>;
 
 }

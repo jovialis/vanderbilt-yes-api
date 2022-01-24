@@ -30,7 +30,8 @@ export class SectionTermScraper extends Scraper<Section> {
         this.term = term;
     }
 
-    override async scrape(handler: StreamedResponseHandler<Section> = () => {}): Promise<Section[]> {
+    override async scrape(handler: StreamedResponseHandler<Section> = () => {
+    }): Promise<Section[]> {
         this.markStart();
 
         this.searchedTerms = [];

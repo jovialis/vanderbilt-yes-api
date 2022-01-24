@@ -23,7 +23,8 @@ export class SectionQueryScraper extends Scraper<Section> {
         this.term = term;
     }
 
-    override async scrape(handler: StreamedResponseHandler<Section> = () => {}): Promise<Section[]> {
+    override async scrape(handler: StreamedResponseHandler<Section> = () => {
+    }): Promise<Section[]> {
         this.markStart();
 
         // Set the current term to scrape
