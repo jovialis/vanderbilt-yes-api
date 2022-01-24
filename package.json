@@ -8,6 +8,10 @@
   "private": false,
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/jovialis/vanderbilt-yes-api.git"
+  },
+  "homepage": "https://github.com/jovialis/vanderbilt-yes-api.git",
   "engines": {
     "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
   },
