@@ -1,6 +1,6 @@
 # @vanderbilt/yes-api
 
-### A simple, no-hassle library for efficiently scraping Your Enrollment Services.
+### A simple, no-hassle library for efficiently querying Your Enrollment Services.
 
 ##### Created by Dylan Hanson (jovialis)
 ---
@@ -95,5 +95,5 @@ const sections = await yes.getAllSections(terms[0], false, async (section, timeE
 
 ## Thanks
 
-Special thanks to the VUIT for necessitating this package's existence. Super special thanks to VUIT, which has so far
+Special thanks to VUIT for necessitating this package's existence. Super special thanks to the Vanderbilt Administration, which has so far
 not filed a cease and desist.
