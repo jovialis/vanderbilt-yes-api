@@ -61,19 +61,19 @@ export class SectionQueryScraper extends Scraper<Section> {
 
         let numPages: number = Math.ceil(numResults / rowsPerPage) || 1;
 
-        console.log('Num results ' + numResults);
-        console.log('Rows per page: ' + rowsPerPage);
+        // console.log('Num results ' + numResults);
+        // console.log('Rows per page: ' + rowsPerPage);
 
         // Completed array of tokens. Each one represents a section.
         let sectionTokens: Section[] = [];
 
         // Don't do pagination if there's only one page
         if (numPages === 1) {
-            console.log("Performing single page digest")
+            // console.log("Performing single page digest")
             sectionTokens.push(...(await this.extractSectionsFromBody(searchResponse.body, term, handler)));
         } else {
-            console.log("Performing pagination")
-            console.log(`Page 1/${numPages}`)
+            // console.log("Performing pagination")
+            // console.log(`Page 1/${numPages}`)
 
             const baseUrl = "https://acad.app.vanderbilt.edu/more/SearchClassesExecute!switchPage.action?pageNum=";
             let curPage = 1;
@@ -94,7 +94,7 @@ export class SectionQueryScraper extends Scraper<Section> {
                             if (curPage > numPages) {
                                 return false;
                             } else {
-                                console.log(`Page ${curPage}/${numPages}`);
+                                // console.log(`Page ${curPage}/${numPages}`);
                                 return {
                                     url: new URL(`${baseUrl}${curPage}`),
                                 };
@@ -105,7 +105,7 @@ export class SectionQueryScraper extends Scraper<Section> {
             ));
         }
 
-        console.log(`Discovered ${sectionTokens.length} sections for keyword \"${query}\" in term ${term}.`);
+        // console.log(`Discovered ${sectionTokens.length} sections for keyword \"${query}\" in term ${term}.`);
         return sectionTokens;
     }
 
