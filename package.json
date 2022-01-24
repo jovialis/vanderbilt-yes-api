@@ -1,8 +1,8 @@
 {
   "name": "@vanderbilt/yes-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
-  "description": "API to rapidly and efficiently ingest data from Vanderbilt University YES.",
+  "description": "A simple, no-hassle library for efficiently scraping Your Enrollment Services.",
   "author": "Dylan Hanson (jovialis)",
   "license": "MIT",
   "private": false,
