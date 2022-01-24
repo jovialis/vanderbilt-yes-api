@@ -9,6 +9,16 @@ MORE: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c_
 
 ## Usage
 
+### Install
+
+```
+npm install @vanderbilt/yes-api
+```
+OR
+```
+yarn add @vanderbilt/yes-api
+```
+
 ### Import
 
 ```typescript
