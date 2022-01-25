@@ -148,13 +148,16 @@ export class SectionQueryScraper extends Scraper<Section> {
                     combinedSchedule.push(`${days[i]};${times[i].replace(' ', '')}`);
                 }
 
+                const trimmedAbbrev = abbreviation.slice(0, abbreviation.length - 1);
+
                 // Notify that we've found a new section.
                 sectionTokens.push({
                     id: sectionId,
                     term: term,
 
                     course: {
-                        abbreviation: abbreviation.slice(0, abbreviation.length - 1),
+                        subject: trimmedAbbrev.split(' ')[0],
+                        abbreviation: trimmedAbbrev,
                         name: title
                     },
 

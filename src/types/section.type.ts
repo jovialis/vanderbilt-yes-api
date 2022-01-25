@@ -7,6 +7,7 @@ import {TermID} from "./term.type.js";
 export type SectionID = string;
 
 export interface Course {
+    subject: string,
     abbreviation: string,
     name: string
 }
