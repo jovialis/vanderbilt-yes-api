@@ -4,7 +4,7 @@
 
 import got from "got";
 import {load} from "cheerio";
-import {YES_BASE_URL} from "../config";
+import {YES_BASE_URL} from "../config.js";
 import {Scraper, StreamedResponseHandler} from "./utils/scraper.js";
 import {Term, TermID, TermSession} from "../types/term.type.js";
 

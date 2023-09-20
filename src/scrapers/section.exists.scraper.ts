@@ -2,7 +2,7 @@
  * Created by jovialis (Dylan Hanson) on 1/22/22.
  */
 
-import {YES_BASE_URL} from "../config";
+import {YES_BASE_URL} from "../config.js";
 import {Scraper, StreamedResponseHandler} from "./utils/scraper.js";
 import got from "got";
 import {CookieJar} from "tough-cookie";
