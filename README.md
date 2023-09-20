@@ -115,8 +115,3 @@ const sections = await yes.getAllSections(terms[0], false, async (section, timeE
 
 #### How should I use this package?
 * This API's speed is unfortunately limited by the speed of YES itself since it fetches data from the source with every request. Consider using this API in a batch process, uploading discovered data to a database or lake for fast, efficient querying and downstream processing.
-
-## Thanks
-
-Special thanks to VUIT for necessitating this package's existence. Super special thanks to the Vanderbilt Administration, which has so far
-not filed a cease and desist.

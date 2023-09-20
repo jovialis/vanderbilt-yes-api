@@ -4,12 +4,13 @@
 
 import got from "got";
 import {load} from "cheerio";
+import {YES_BASE_URL} from "../config";
 import {Scraper, StreamedResponseHandler} from "./utils/scraper.js";
 import {Term, TermID, TermSession} from "../types/term.type.js";
 
 export class TermScraper extends Scraper<Term> {
 
-    private readonly SEARCH_CLASSES = "https://acad.app.vanderbilt.edu/more/SearchClasses!input.action";
+    private readonly SEARCH_CLASSES = `${YES_BASE_URL}/SearchClasses!input.action`;
 
     override async scrape(handler: StreamedResponseHandler<Term> = (_) => {
     }): Promise<Term[]> {
@@ -63,7 +64,7 @@ export class TermScraper extends Scraper<Term> {
             cookieJar: this.cookieJar
         });
 
-        const updateSessions = `https://acad.app.vanderbilt.edu/more/SelectTerm!updateSessions.action`;
+        const updateSessions = `${YES_BASE_URL}/SelectTerm!updateSessions.action`;
         const sessionsResult = await got(updateSessions, {
             cookieJar: this.cookieJar,
             responseType: 'json'

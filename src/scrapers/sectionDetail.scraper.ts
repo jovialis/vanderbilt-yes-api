@@ -2,6 +2,7 @@
  * Created by jovialis (Dylan Hanson) on 1/22/22.
  */
 
+import {YES_BASE_URL} from "../config";
 import {Scraper, StreamedResponseHandler} from "./utils/scraper.js";
 import got from "got";
 import {load} from "cheerio";
@@ -21,7 +22,7 @@ export class SectionDetailScraper extends Scraper<SectionDetails> {
     }): Promise<SectionDetails[]> {
         this.markStart();
 
-        const url = 'https://acad.app.vanderbilt.edu/more/GetClassSectionDetail.action';
+        const url = `${YES_BASE_URL}/GetClassSectionDetail.action`;
         const request = await got(url, {
             cookieJar: this.cookieJar,
             searchParams: {

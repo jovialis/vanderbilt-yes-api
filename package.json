@@ -1,11 +1,10 @@
 {
   "name": "@vanderbilt/yes-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "type": "module",
   "description": "A simple, no-hassle library for efficiently scraping Your Enrollment Services.",
   "author": "Dylan Hanson (jovialis)",
   "license": "MIT",
-  "private": false,
   "exports": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {

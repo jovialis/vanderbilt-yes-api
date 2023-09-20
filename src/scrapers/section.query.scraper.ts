@@ -2,6 +2,7 @@
  * Created by jovialis (Dylan Hanson) on 1/22/22.
  */
 
+import {YES_BASE_URL} from "../config";
 import {Scraper, StreamedResponseHandler} from "./utils/scraper.js";
 import got, {Response} from "got";
 import {load} from "cheerio";
@@ -28,7 +29,7 @@ export class SectionQueryScraper extends Scraper<Section> {
         this.markStart();
 
         // Set the current term to scrape
-        const setTerm = `https://acad.app.vanderbilt.edu/more/SelectTerm!selectTerm.action?selectedTermCode=${this.term}`;
+        const setTerm = `${YES_BASE_URL}/SelectTerm!selectTerm.action?selectedTermCode=${this.term}`;
         await got(setTerm, {cookieJar: this.cookieJar})
 
         // Get objects from pagination
@@ -37,7 +38,7 @@ export class SectionQueryScraper extends Scraper<Section> {
 
     private async paginateByQuery(query: string, term: TermID, handler: StreamedResponseHandler<Section>): Promise<Section[]> {
         // Prime the search for pagination
-        const searchUrl = "https://acad.app.vanderbilt.edu/more/SearchClassesExecute!search.action";
+        const searchUrl = `${YES_BASE_URL}/SearchClassesExecute!search.action`;
         const searchResponse = await got(searchUrl, {
             searchParams: {
                 keywords: query
@@ -75,7 +76,7 @@ export class SectionQueryScraper extends Scraper<Section> {
             // console.log("Performing pagination")
             // console.log(`Page 1/${numPages}`)
 
-            const baseUrl = "https://acad.app.vanderbilt.edu/more/SearchClassesExecute!switchPage.action?pageNum=";
+            const baseUrl = `${YES_BASE_URL}/SearchClassesExecute!switchPage.action?pageNum=`;
             let curPage = 1;
 
             sectionTokens.push(...await got.paginate.all(
